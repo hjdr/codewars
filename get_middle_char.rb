@@ -1,11 +1,18 @@
 
-test_string = "helloyou"
+test_string = "helloyoui"
 
 def get_middle(input_str)
   str_length = input_str.length
   str_middle = str_length / 2
-  put str_middle
+  puts str_length
+  puts str_middle
+  
+  if str_length % 2 != 0
+    return input_str[str_middle]
+  end
 end
 
 
-get_middle(test_string)
+test = get_middle(test_string)
+
+puts test
