@@ -1,17 +1,19 @@
 
-mum = "rdogiedgargqE"
+string_to_mumble = 'The quick brown fox jumps over the lazy dog.'
 
-def accum(string_to_mumble)
-  counter = 0
-  mumble_string = ""
-	string_to_mumble.downcase!.each_char { |char|
-    counter += 1
-    char *= counter
-    char.sub!(char[0], char[0].upcase)
-    mumble_string += char
-      if counter < string_to_mumble.length
-        mumble_string += "-"
-      end
+mumble_string = ""
+counter = 1
+
+test = string_to_mumble.each_char { |char|
+    counter.times {
+      x = char + char
+      mumble_string + x
+      }
+      counter += 1
     }
-    return mumble_string
- end
+
+print mumble_string
+
+x = "h"
+
+print x * 7
