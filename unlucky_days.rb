@@ -1,16 +1,17 @@
-require "time"
+=begin
+Friday 13th or Black Friday is considered as unlucky day. Calculate how many unlucky days are in the given year.
+=end
+
+require "date"
 
 def unlucky_days(input_year)
-  start_date = Time.parse("27-03-" + input_year.to_s)
-  puts start_date
-  puts start_date.wday
-  test = start_date.strftime("%j-%w : %d-%m-%Y")
-  puts test[0..2]
+  unlucky_day = 0
+  start_date = Date.parse("01-01-" + input_year.to_s)
+  for day in 0..364
+    check_date = start_date.next_day(day)
+      if check_date.wday.to_i == 5 && check_date.day.to_i == 13
+      unlucky_day += 1
+      end
+  end
+  return unlucky_day
 end
-
-unlucky_days(2018)
-
-
-test = Time.strptime("172-2018", "%j-%Y")
-
-puts test
