@@ -10,7 +10,3 @@ def power_of_two?(num)
   end
     num == output
 end
-
-test = power_of_two?(17)
-
-puts test
