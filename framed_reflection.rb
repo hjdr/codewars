@@ -4,7 +4,8 @@ You are given a message (text) that you choose to read in a mirror (weirdo). Ret
 
 def mirror(text)
   text_array = []
-  puts text.split(" ")
+  text_array << text.split(" ").each {|element| element.reverse!}
+  text_array.each {|element| puts element }
 end
 
-test = mirror("hello world")
+test = mirror("hello world how are you")
