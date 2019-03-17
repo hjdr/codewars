@@ -3,21 +3,10 @@ Write a function, persistence, that takes in a positive parameter num and return
 =end
 
 def persistence(n)
-loop_counter = 0
+  counter = 0
   while n > 9
-    int_array = n.to_s.chars.map(&:to_i)
-    counter = 0
-    first_no = int_array[counter] * int_array[counter +1]
-    loop_counter += 1
-    counter += 2
-    while counter < int_array.length
-      first_no *= int_array[counter]
-      counter += 1
-    end
-    n = first_no
+    counter +=1
+    n = n.to_s.chars.map(&:to_i).inject(&:*)
   end
-  return loop_counter
+  return counter
 end
-
-
-persistence(4)
