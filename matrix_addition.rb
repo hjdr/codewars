@@ -1,18 +1,16 @@
+=begin
+Write a function that accepts two square matrices (N x N two dimensional arrays), and return the sum of the two. Both matrices being passed into the function will be of size N x N (square), containing only integers.
 
+How to sum two matrices:
+
+Take each cell [n][m] from the first matrix, and add it with the same [n][m] cell from the second matrix. This will be cell [n][m] of the solution matrix.
+=end
 
 def matrixAddition(a, b)
-  puts array_length = a.length
-  puts sub_array_length = a.first.length
-  output_array = []
-  array_length_counter = 0
-  sub_array_length_counter = 0
-  while array_length_counter < array_length
-    
+  counter, output_array = 0, []
+  for sub_array in a
+    output_array << a[counter].zip(b[counter]).map{|x, y| x + y}
+    counter += 1
+  end
+  output_array
 end
-
-
-
-test1 = [[1, 2, 3, 4], [5, 6, 7, 8]]
-test2 = [[1, 2, 3, 4], [5, 6, 7, 8]]
-
-matrixAddition(test1, test2)
