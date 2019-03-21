@@ -1,10 +1,9 @@
-
+=begin
+Move the first letter of each word to the end of it, then add "ay" to the end of the word. Leave punctuation marks untouched.
+=end
 
 def pig_it(text)
-  output = []
+output = []
   text.split.each{ |element| element.match(/[A-Za-z]/) ? output << element[1..-1] + element[0] + "ay" : output << element }
-  print output
+  output.join(" ")
 end
-
-
-pig_it("Hello world !")
