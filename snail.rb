@@ -1,3 +1,9 @@
+=begin
+  Given an n x n array, return the array elements arranged from outermost elements to the middle element, traveling clockwise.
+=end
+  
+end
+
 def snail(array)
   arr_size, subarr_size, output_arr, iterate_array = array.size, array[0].size, [], [0, 1, 2]
   (arr_size %2 == 0 ? arr_size /2 : ((arr_size /2) +1) ).times {
@@ -9,12 +15,3 @@ def snail(array)
   output_arr.pop if arr_size %2 != 0
   output_arr.flatten!
 end
-
-test_arr = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-
-print snail(test_arr)
-
-
-
-[1, 2, 3, 6, 9, 8, 7, 4, 5]
-[1, 2, 3, 6, 9, 9, 8, 7, 7, 4, 5]
