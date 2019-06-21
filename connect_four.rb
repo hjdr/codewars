@@ -16,6 +16,47 @@ class ConnectFour
     end
   end
 
+  def vertical_win_yellow
+    @grid.each do |column| yellow_counter = 0
+      column.each do |piece|
+        piece == "Yellow" ? yellow_counter += 1 : yellow_counter = 0
+        return "Yellow" if yellow_counter == 4
+      end
+    end
+  end
+  
+  def vertical_win_red
+    @grid.each do |column| red_counter = 0
+      column.each do |piece|
+        piece == "Red" ? red_counter += 1 : red_counter = 0
+        return "Red" if red_counter == 4
+      end
+    end
+  end
+  
+  def horizontal_win_yellow
+    yellow_counter, position = 0, 0
+    while position < 6
+      @grid.each do |column| 
+        column[position] == "Yellow" ? yellow_counter += 1 : yellow_counter = 0
+        return "Yellow" if yellow_counter == 4
+      end
+      position += 1
+    end
+  end
+
+  def horizontal_win_red
+    red_counter, position = 0, 0
+    while position < 6
+      @grid.each do |column| 
+        column[position] == "Red" ? red_counter += 1 : red_counter = 0
+        return "Red" if red_counter == 4
+      end
+      position += 1
+    end
+  end
+
+
 
 end
 
