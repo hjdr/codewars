@@ -56,8 +56,20 @@ class ConnectFour
     end
   end
 
-
-
+  def diagonal_win_yellow
+    counter, yellow_counter = 0, 0
+    @grid.length.times do
+      column, row = 0, 0
+      column += counter
+      while row < 6
+        @grid[column][row] == "Yellow" ? yellow_counter += 1 : yellow_counter = 0
+        return "Yellow" if yellow_counter == 4
+        column += 1
+        row += 1
+      end
+      counter += 1
+    end
+  end
 end
 
 
