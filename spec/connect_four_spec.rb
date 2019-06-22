@@ -115,9 +115,17 @@ describe ConnectFour do
     end
   end
 
+  describe "#diagonal_win_yellow_y_axis" do
+    it "calculates if four sequential yellow pieces are in a diagonal row from y axis" do
+      @game = ConnectFour.new(["A_Red", "B_Yellow", "C_Red", "C_Yellow", "A_Red", "D_Yellow", "E_Red", "D_Yellow", "C_Red", "F_Yellow", "G_Red", "E_Yellow", "F_Red", "F_Yellow", "G_Red", "G_Yellow", "A_Red", "A_Yellow"])
+      @game.slot_pieces_into_grid
+      expect(@game.diagonal_win_yellow_y_axis).to eq("Yellow")
+    end
+  end
+
+  describe 
 
 end
-
 
 # map A-G to 0-6
 # parse each string in input array and remove first two chars

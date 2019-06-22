@@ -61,7 +61,7 @@ class ConnectFour
     @grid.length.times do
       column, row = 0, 0
       column += counter
-      while row < 6
+      (@grid.length - column).times do
         @grid[column][row] == "Yellow" ? yellow_counter += 1 : yellow_counter = 0
         return "Yellow" if yellow_counter == 4
         column += 1
