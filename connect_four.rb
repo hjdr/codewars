@@ -8,6 +8,7 @@ class ConnectFour
     @pieces_position_list = pieces_position_list
     @A, @B, @C,@D, @E, @F, @G = 0, 1, 2, 3, 4, 5, 6
     @grid = [[],[],[],[],[],[],[]]
+    @grid_height = 6
   end
 
   def slot_pieces_into_grid
@@ -56,9 +57,9 @@ class ConnectFour
     end
   end
 
-  def diagonal_win_yellow
+  def diagonal_win_yellow_x_axis
     counter, yellow_counter = 0, 0
-    @grid.length.times do
+    @grid.each do
       column, row = 0, 0
       column += counter
       (@grid.length - column).times do
@@ -70,6 +71,37 @@ class ConnectFour
       counter += 1
     end
   end
+
+  def diagonal_win_yellow_y_axis
+    counter, yellow_counter = 0, 0
+    (@grid_height - 3).times do
+      column, row = 0, 0
+      row += counter
+      (@grid_height - row).times do
+        @grid[column][row] == "Yellow" ? yellow_counter += 1 : yellow_counter = 0
+        return "Yellow" if yellow_counter == 4
+        column += 1
+        row += 1
+      end
+      counter += 1
+    end
+  end
+
+  def diagonal_win_red_x_axis
+    counter, red_counter = 0, 0
+    @grid.each do
+      column, row = 0, 0
+      column += counter
+      (@grid.length - column).times do
+        @grid[column][row] == "Red" ? red_counter += 1 : red_counter = 0
+        return "Red" if red_counter == 4
+        column += 1
+        row += 1
+      end
+      counter += 1
+    end
+  end
+
 end
 
 
