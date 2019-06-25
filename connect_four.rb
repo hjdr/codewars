@@ -1,9 +1,4 @@
 
-def who_is_winner(pieces_position_list)
-  @game = ConnectFour.new(pieces_position_list)
-  return @game.slot_pieces_into_grid
-end
-
 ConnectFour = Class.new
 
 class ConnectFour
