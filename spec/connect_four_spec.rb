@@ -107,57 +107,86 @@ describe ConnectFour do
     end
   end
 
-  describe "#diagonal_win_x_axis" do
+  describe "#right_diagonal_win_x_axis_" do
     it "calculates if four sequential pieces are in a diagonal row from x axis" do
       @game = ConnectFour.new(["A_Red", "B_Yellow", "C_Red", "C_Yellow", "D_Red", "D_Yellow", "E_Red", "D_Yellow", "E_Red", "E_Yellow", "G_Red", "E_Yellow"])
       @game.slot_pieces_into_grid
-      expect(@game.diagonal_win_x_axis("Yellow")).to eq("Yellow")
+      expect(@game.right_diagonal_win_x_axis("Yellow")).to eq("Yellow")
     end
   end
 
-  describe "#diagonal_win_x_axis" do
+  describe "#right_diagonal_win_x_axis" do
     it "calculates if four sequential pieces are in a diagonal row from x axis" do
       @game = ConnectFour.new(["A_Red", "B_Yellow", "C_Red", "C_Yellow", "A_Red", "D_Yellow", "E_Red", "D_Yellow", "C_Red", "F_Yellow", "G_Red", "E_Yellow", "F_Red", "F_Yellow", "G_Red", "G_Yellow", "A_Red", "G_Yellow"])
       @game.slot_pieces_into_grid
-      expect(@game.diagonal_win_x_axis("Yellow")).to eq("Yellow")
+      expect(@game.right_diagonal_win_x_axis("Yellow")).to eq("Yellow")
     end
   end
 
-  describe "#diagonal_win_y_axis" do
+  describe "#up_diagonal_win_y_axis" do
     it "calculates if four sequential pieces are in a diagonal row from y axis" do
       @game = ConnectFour.new(["A_Yellow", "B_Red", "B_Yellow", "C_Red", "B_Yellow", "C_Red", "C_Yellow", "D_Red", "C_Yellow", "D_Red", "D_Yellow", "D_Red", "D_Yellow", "E_Red", "E_Yellow", "E_Red", "E_Yellow", "E_Red", "E_Yellow", "G_Red"])
       @game.slot_pieces_into_grid
-      expect(@game.diagonal_win_y_axis("Yellow")).to eq("Yellow")
+      expect(@game.left_diagonal_win_y_axis("Yellow")).to eq("Yellow")
     end
   end
 
-  describe "#diagonal_win_yellow_y_axis" do
+  describe "#up_diagonal_win_yellow_y_axis" do
     it "calculates if four sequential pieces are in a diagonal row from y axis" do
       @game = ConnectFour.new(["A_Yellow", "B_Red", "B_Yellow", "C_Red", "B_Yellow", "C_Red", "C_Yellow", "D_Red", "C_Yellow", "D_Red", "D_Yellow", "D_Red", "D_Yellow", "E_Red", "E_Yellow", "E_Red", "E_Yellow", "E_Red", "G_Yellow", "G_Red"])
       @game.slot_pieces_into_grid
-      expect(@game.diagonal_win_y_axis("Yellow")).not_to eq("Yellow")
+      expect(@game.left_diagonal_win_y_axis("Yellow")).not_to eq("Yellow")
     end
   end
 
-  describe "#diagonal_win_x_axis" do
+  describe "#right_diagonal_win_x_axis" do
     it "calculates if four sequential pieces are in a diagonal row from x axis" do
       @game = ConnectFour.new(["E_Yellow", "D_Red", "F_Yellow", "E_Red", "F_Yellow", "F_Red", "G_Yellow", "G_Red", "G_Yellow", "G_Red"])
       @game.slot_pieces_into_grid
-      expect(@game.diagonal_win_x_axis("Red")).to eq("Red")
+      expect(@game.right_diagonal_win_x_axis("Red")).to eq("Red")
     end
   end
 
-  describe "#diagonal_win_y_axis" do
+  describe "#left_diagonal_win_y_axis" do
     it "calculates if four sequential pieces are in a diagonal row from y axis" do
       @game = ConnectFour.new(["A_Yellow", "A_Red", "B_Yellow", "A_Red", "B_Yellow", "B_Red", "C_Yellow", "B_Red", "C_Yellow", "C_Red", "C_Yellow", "C_Red", "D_Yellow", "D_Red", "D_Yellow", "D_Red", "D_Yellow", "D_Red" ])
       @game.slot_pieces_into_grid
-      expect(@game.diagonal_win_y_axis("Red")).to eq("Red")
+      expect(@game.left_diagonal_win_y_axis("Red")).to eq("Red")
     end
   end
 
+  describe "#left_diagonal_win_x_axis" do
+    it "calculates if four sequential pieces are in a diagonal row from x axis" do
+      @game = ConnectFour.new(["F_Yellow", "E_Red", "E_Yellow", "D_Red", "D_Yellow", "C_Red", "D_Yellow", "C_Red", "C_Yellow", "G_Red", "C_Yellow"])
+      @game.slot_pieces_into_grid
+      expect(@game.left_diagonal_win_x_axis("Yellow")).to eq("Yellow")
+    end
+  end
 
+  describe "#right_diagonal_win_y_axis" do
+    it "calculates if four sequential pieces are in a diagonal row from y axis" do
+      @game = ConnectFour.new(["C_Yellow", "C_Red", "C_Yellow", "C_Red", "C_Yellow", "D_Red", "C_Yellow", "D_Red", "D_Yellow", "D_Red", "D_Yellow", "E_Red", "E_Yellow", "E_Red", "E_Yellow", "F_Red", "F_Yellow", "G_Red", "F_Yellow",])
+      @game.slot_pieces_into_grid
+      expect(@game.right_diagonal_win_y_axis("Yellow")).to eq("Yellow")
+    end
+  end
 
 end
+
+
+
+#   describe "#declare_winner" do
+#     it "returns either Yellow, Red or Draw depending on output of win-functions" do
+#       expect(@game.declare_winner("Yellow")).to eq("Yellow")
+#     end
+#   end
+
+#   describe "#declare_winner" do
+#     it "returns either Yellow, Red or Draw depending on output of win-functions" do
+#       expect(@game.declare_winner("Red")).to eq("Red")
+#     end
+#   end
+
 
 # map A-G to 0-6
 # parse each string in input array and remove first two chars
